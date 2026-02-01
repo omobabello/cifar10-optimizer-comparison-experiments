@@ -1,58 +1,63 @@
 # CIFAR-10 Optimizer Comparison Experiments
 
-This repository contains a set of experiments comparing different optimization algorithms for training a convolutional neural network (CNN) on the CIFAR-10 dataset using PyTorch.
-
-The core objective of this project is to understand how different optimizers affect:
-- Convergence speed
-- Training stability
-- Final validation accuracy
-
-All experiments are implemented and documented in a single Jupyter Notebook.
+This repository presents a set of controlled experiments comparing the performance of various optimization algorithms for training a convolutional neural network (CNN) on the CIFAR-10 dataset. The work is intended to serve as a reproducible benchmark for researchers and practitioners evaluating optimizer behavior in deep learning.
 
 ---
 
-## 📘 Project Overview
+## 📚 Abstract
 
-CIFAR-10 is a standard benchmark dataset in computer vision, consisting of 60,000 32×32 RGB images across 10 classes.  
-This project evaluates and compares the following optimizers:
+The study investigates how optimizer choice impacts **training convergence, generalization performance, and stability**. CIFAR-10, a widely used benchmark dataset in computer vision, provides a standardized framework for this comparison.
 
-- Stochastic Gradient Descent (SGD)
-- SGD with Momentum
-- Adam
-- RMSprop
+Optimizers evaluated include:
 
-Each optimizer is trained under similar conditions to allow for a fair comparison.
+- Stochastic Gradient Descent (SGD)  
+- SGD with Momentum  
+- Adam  
+- RMSprop  
 
----
-
-## 📂 Repository Structure
-
-```
-cifar10-optimizer-comparison-experiments/
-├── optimizer_comparison_cifar10.ipynb   # Main experiment notebook
-└── README.md
-```
+Performance is analyzed through **quantitative metrics** (loss, accuracy) and **qualitative visualizations** (training curves, convergence plots).
 
 ---
 
-## ⚙️ Requirements
+## 🔬 Methodology
 
-- Python 3.8+
-- PyTorch
-- torchvision
-- numpy
-- matplotlib
+1. **Data Preprocessing:**  
+   - CIFAR-10 dataset: 50,000 training and 10,000 test images  
+   - Normalization and optional augmentation applied
+
+2. **Model Architecture:**  
+   - A standard convolutional neural network with multiple convolutional and fully connected layers  
+   - Designed for comparability across different optimizer configurations
+
+3. **Training Procedure:**  
+   - Consistent training hyperparameters across optimizers (epochs, batch size, learning rate)  
+   - Evaluation of training and validation metrics per epoch
+
+4. **Analysis:**  
+   - Compare convergence speed and final validation accuracy  
+   - Visualize optimizer performance with training and validation curves  
+   - Assess stability across multiple runs
+
+---
+
+## 🛠️ Reproducibility
+
+### Requirements
+
+- Python 3.8+  
+- PyTorch  
+- torchvision  
+- numpy  
+- matplotlib  
 - Jupyter Notebook
 
-Install dependencies manually:
+Install dependencies:
 
 ```bash
 pip install torch torchvision numpy matplotlib
 ```
 
----
-
-## ▶️ How to Run
+### Running the Experiments
 
 1. Clone the repository:
 
@@ -67,63 +72,45 @@ cd cifar10-optimizer-comparison-experiments
 jupyter notebook
 ```
 
-3. Open and run:
-
-```
-optimizer_comparison_cifar10.ipynb
-```
-
-Run all cells to reproduce the experiments and plots.
+3. Open `optimizer_comparison_cifar10.ipynb` and execute all cells to reproduce experiments.
 
 ---
 
-## 📊 Experiments & Evaluation
+## 📊 Experimental Results
 
-The notebook includes:
+The notebook includes detailed plots of:
 
-- CIFAR-10 data loading and preprocessing
-- A simple CNN architecture
-- Training loops for multiple optimizers
-- Accuracy and loss plots for comparison
-- Observations on optimizer behavior
+- Training and validation loss curves  
+- Training and validation accuracy curves  
+- Comparative convergence analysis  
 
-Metrics tracked:
-- Training loss
-- Validation loss
-- Validation accuracy per epoch
+Typical observations:
 
----
+- **SGD:** Stable convergence, slower early training  
+- **SGD + Momentum:** Faster convergence than vanilla SGD  
+- **Adam:** Rapid initial convergence, may plateau  
+- **RMSprop:** Adaptive behavior similar to Adam, sensitive to learning rate  
 
-## 📈 Results
-
-Results may vary depending on random seeds and hardware, but generally:
-
-- SGD converges slower but is stable
-- SGD with momentum improves convergence speed
-- Adam converges faster early but may plateau
-- RMSprop shows adaptive behavior similar to Adam
-
-The notebook visualizes these differences clearly using plots.
+> All results are reproducible with consistent random seeds and hyperparameter settings.
 
 ---
 
-## 🔧 Extensions
+## ⚡ Potential Extensions
 
-You can extend this project by:
-- Adding optimizers such as AdamW or Adagrad
-- Testing deeper CNN architectures
-- Applying data augmentation
-- Logging experiments with TensorBoard or Weights & Biases
+- Include additional optimizers (AdamW, Adagrad, Adadelta)  
+- Experiment with deeper or alternative CNN architectures  
+- Apply data augmentation strategies and regularization techniques  
+- Integrate experiment tracking tools (TensorBoard, Weights & Biases)
 
 ---
 
 ## 📜 License
 
-This project is open-source and available for educational and experimental use.
+This repository is released under an open-source license for academic and experimental purposes.
 
 ---
 
 ## 👤 Author
 
 **Bello Opeyemi**  
-GitHub: https://github.com/omobabello
+GitHub: [https://github.com/omobabello](https://github.com/omobabello)
